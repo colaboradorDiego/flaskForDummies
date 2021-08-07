@@ -1,0 +1,42 @@
+<html>
+	<head>
+		<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/gridCss.css') }}" />
+		
+		<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+		<script type="text/javascript">
+		
+			covid = {{data|tojson}};
+			console.log(covid);
+		
+			function drawTable() {
+				var dataTable = new google.visualization.DataTable();
+				var table = new google.visualization.Table(document.getElementById('three'));
+				
+				dataTable.addColumn('string', 'Nombre Pais');
+				dataTable.addColumn('number', 'Nro de casos');
+				
+				Object.entries(covid.countries).forEach(([y, v]) => {
+					dataTable.addRows([
+						[y, v['total_cases']],
+					]);
+				});
+				
+				table.draw(dataTable, {showRowNumber: true, width: '100%', height: '100%'});
+				
+			}
+			
+			google.charts.load('current', {'packages': ['table']});
+			google.charts.setOnLoadCallback(drawTable);
+		</script>
+	</head>
+	<body>
+		<div id="wrapper" class="wrapper">
+			<div id="one" class="one">One</div>
+			<div id="two" class="two">Two</div>
+			<div id="three" class="three"></div>
+			<div id="four" class="four">Four</div>
+			<div id="five" class="five">Five</div>
+			<div id="six" class="six">Six</div>
+		</div>
+	</body>
+</html>

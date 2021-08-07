@@ -1,0 +1,30 @@
+<html>
+	<head>
+		<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/gridCss.css') }}" />
+		
+		<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+	</head>
+	<body>
+		<div id="wrapper" class="wrapper">
+			<div id="one" class="one">One</div>
+			<div id="two" class="two">Two</div>
+			<div id="three" class="three">
+				<table>
+					<tr>
+						<th>Col A</th>
+						<th>Col B</th>
+					</tr>
+					{% for v in data %}
+					<tr>
+						<td>{{ v }}</td>
+						<td>{{ data[v] }}</td>
+					</tr>
+					{% endfor %}
+				</table>
+			</div>
+			<div id="four" class="four">Four</div>
+			<div id="five" class="five">Five</div>
+			<div id="six" class="six">Six</div>
+		</div>
+	</body>
+</html>

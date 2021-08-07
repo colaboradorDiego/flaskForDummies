@@ -1,0 +1,50 @@
+<html>
+	<head>
+		<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/gridCss.css') }}" />
+		
+		<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+		<script type="text/javascript">
+			
+			let columnas = [
+							{id: 'equipoID', label: 'Equipo', type: 'string'},
+							{id: 'pustosID', label: 'Puntos', type: 'number'},
+							{id: 'updateID', label: 'Ultimo Partido', type: 'date'},
+							];
+							
+			let filas = [
+							{c:[{v: 'Boca'}, {v: 25}, {v: new Date(2008, 11, 28)}]},
+							{c:[{v: 'Platense'}, {v: 20}, {v: new Date(2008, 11, 20)}]},
+							{c:[{v: 'Racing'}, {v: 18}, {v: new Date(2008, 11, 20)}]},
+							{c:[{v: 'Velez'}, {v: 15}, {v: new Date(2008, 11, 28)}]},
+						]
+							
+			function drawTable() {
+			
+				let data = new google.visualization.DataTable(
+				   {
+					 cols: columnas,
+					 rows: filas
+				   }
+				)
+				
+				
+				let table = new google.visualization.Table(document.getElementById('three'));
+				table.draw(data, {showRowNumber: true, width: '100%', height: '100%'});
+				
+			}
+			
+			google.charts.load('current', {'packages':['table']});
+			google.charts.setOnLoadCallback(drawTable);			
+		</script>
+	</head>
+	<body>
+		<div id="wrapper" class="wrapper">
+			<div id="one" class="one">One</div>
+			<div id="two" class="two">Two</div>
+			<div id="three" class="three">Three</div>
+			<div id="four" class="four">Four</div>
+			<div id="five" class="five">Five</div>
+			<div id="six" class="six">Six</div>
+		</div>
+	</body>
+</html>
