@@ -1,6 +1,7 @@
 # README #
 
 # How to build a Real-Time streaming Quote Widget
+	Bueno
 	Real-Time data esto lo tengo que ver
 	https://developers.refinitiv.com/en/article-catalog/article/how-to-build-a-real-time-streaming-quote-widget
 	
