@@ -6,7 +6,16 @@
 	https://developers.refinitiv.com/en/article-catalog/article/how-to-build-a-real-time-streaming-quote-widget
 	
 
-# google API examples
+# Google Developer: API examples - Display live data on your site
+	https://developers.google.com/chart
+	https://roytuts.com/google-pie-chart-using-python-flask/
+	
+	Visualization: Table
+		https://developers.google.com/chart/interactive/docs/gallery/table
+		
+	DataTables and DataViews
+		https://developers.google.com/chart/interactive/docs/datatables_dataviews#datatablesdataviews
+		
 
 	start server
 		este es el servidor que publica las paginas que detallamos a continuacion
@@ -37,17 +46,35 @@
 	
 	Flask mysql client
 		pip install flask-mysqldb
+		
+		este tipo utiliza: SQLALCHEMY_DATABASE en lugar de mysql.connection.cursor
+			mira -> https://github.com/miguelgrinberg/flask-tables/blob/main/ajax_table.py
 	
-	MySql Server
+	MySql Server - Database
+		create database geeklogin;
+		use geeklogin;
+		CREATE TABLE accounts (
+			id INT AUTO_INCREMENT PRIMARY KEY,
+			email VARCHAR(50) NOT NULL,
+			password VARCHAR(10) NOT NULL
+		) ENGINE=InnoDB;
+
 		mysql -> VirtualBox en mi pc -> linux Debian (192.168.0.101)
 		root:usuario
+		
 	
 	run:
 		python simpleLogin.py
 		now browse http://127.0.0.1:5000 to open login page
 		
+		python sampleTables.py
+			Aplico lo q aprendo con:
+				JINJA
+				AJAX
+				JavaScript
+		
 	
-
+		
 
 # Flask
 	https://flask.palletsprojects.com/en/1.1.x/
@@ -72,6 +99,13 @@
 		google/static/css/gridCss.css
 		mas detalle en: https://developer.mozilla.org/es/docs/Web/CSS/CSS_Grid_Layout
 	
+# Flask y JINJA:
+		https://www.youtube.com/watch?v=mCy52I4exTU
+		https://stackoverflow.com/questions/14835852/convert-sql-result-to-list-python
+		https://www.mysqltutorial.org/python-mysql-query/
+		https://dev.mysql.com/doc/connector-python/en/connector-python-api-mysqlcursor-fetchall.html
+
+
 	
 # Flask & JavaScript
 	Passing variables from Flask to JavaScript
@@ -82,15 +116,4 @@
 	As of Flask 1.1.0, you can now directly return a python dict, and it will be automatically jsonify'd by Flask.
 	If you want to return a different json-serializable object, you can import and use jsonify
 	
-
-### Google Developer: Display live data on your site
-	https://developers.google.com/chart
-	https://roytuts.com/google-pie-chart-using-python-flask/
-	
-	Visualization: Table
-		https://developers.google.com/chart/interactive/docs/gallery/table
-		
-	DataTables and DataViews
-		https://developers.google.com/chart/interactive/docs/datatables_dataviews#datatablesdataviews
-		
 

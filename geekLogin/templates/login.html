@@ -6,21 +6,38 @@
    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}" />
 </head>
 <body>
-   <div align="center">
-      <div align="center" class="border">
-         <div class="header">
-            <h1 class="word">Login</h1>
-         </div>
-         <h2 class="word">
-            <form action="{{ url_for('login') }}" method="post">
-               <div class="msg">{{ msg }}</div>
-               <input id="email" name="email" type="text" placeholder="Enter Your eMail" class="textbox" />
-               <input id="password" name="password" type="password" placeholder="Enter Your Password" class="textbox" />
-               <input type="submit" class="btn" value="Sign In" />
-            </form>
-         </h2>
-         <p class="bottom">Dont't have an account? <a class="bottom" href="{{url_for('register')}}"> Sign Up here</a></p>
-      </div>
-   </div>
+
+	<div class="login-col-right">
+
+	  <div class="login-box">
+
+		<div class="wrap-form-login">
+		  <div>
+			<h1>Login</h1>
+		  </div>
+
+		  <form name="loginForm" id="loginForm" method="post" autocomplete="on" action={{ url_for('login') }} novalidate="novalidate">
+
+			<div class="msg">{{ msg }}</div>
+
+			<div class="field-wrapper">
+			  <input type="text" id="email" name="email" placeholder="eMail" required="" />
+			</div>
+			<div class="field-wrapper">
+			  <input type="password" id="password" name="password" placeholder="Enter Your Password" required="" />
+			</div>
+
+			<div class="invalid-feedback">
+			  El usuario o la contraseña son incorrectos
+			</div>
+			<input type="submit" name="_eventId_login" value="Sign In" class="btn btn-login" />
+		  </form>
+		  <br />
+		  <div id="passRecDiv">
+			<a href="{{url_for('register')}}" id="passRecLink">Dont't have an account?</a>
+		  </div>
+		</div>
+	  </div>
+	</div>
 </body>
 </html>

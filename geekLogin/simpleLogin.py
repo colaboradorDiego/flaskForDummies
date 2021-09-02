@@ -2,15 +2,26 @@ from flask import Flask, render_template, request, redirect, url_for, session
 from flask_mysqldb import MySQL
 import MySQLdb.cursors
 import re
+import os
+import json
+
 
 app = Flask(__name__)
 
 app.secret_key = 'your secret key'
 
-app.config['MYSQL_HOST'] = '192.168.0.101'
-app.config['MYSQL_USER'] = 'remoto'
-app.config['MYSQL_PASSWORD'] = 'test'
-app.config['MYSQL_DB'] = 'geeklogin'
+app.config['MYSQL_HOST'] = ''
+app.config['MYSQL_USER'] = ''
+app.config['MYSQL_PASSWORD'] = ''
+app.config['MYSQL_DB'] = ''
+
+parametros = os.path.abspath(os.path.join(os.path.dirname(__file__), '..', 'geekLogin.ini'))
+with open(parametros, 'r') as f:
+    conArgs = json.load(f)
+    app.config['MYSQL_HOST'] = conArgs['mysql']['host']
+    app.config['MYSQL_USER'] = conArgs['mysql']['user']
+    app.config['MYSQL_PASSWORD'] = conArgs['mysql']['pass']
+    app.config['MYSQL_DB'] = conArgs['mysql']['db']
 
 mysql = MySQL(app)
 
@@ -54,7 +65,7 @@ def register():
         print("-------------> ", email)
         print("-------------> ", password)
         if validadMail(email):
-            if len(password) > 7:
+            if len(password) > 4:
                 cursor.execute('SELECT * FROM accounts WHERE email = % s', (email,))
                 account = cursor.fetchone()
                 if not account:
@@ -68,12 +79,11 @@ def register():
                 else:
                     msg = 'Account already exists !'
             else:
-                msg = 'Password need at least 8 characters'
+                msg = 'Password need at least 4 characters'
         else:
             msg = 'Invalid email address !'
 
-    return render_template('register.html', msg = msg)
-
+    return render_template('register.html', msg=msg)
 
 
 

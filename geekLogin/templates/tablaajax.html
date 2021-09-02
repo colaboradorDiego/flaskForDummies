@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+
+{% block content %}
+<table id="data" class="table table-striped">
+    <thead>
+        <tr>
+            <th>Nro</th>
+            <th>email</th>
+            <th>password</th>
+        </tr>
+    </thead>
+    <tbody></tbody>
+</table>
+{% endblock %}
+
+{% block scripts %}
+<script>
+	$(document).ready(function () {
+		var miTabla;
+		
+		miTabla = $("#data").DataTable({
+			ajax: "/apidata",
+			columns: [{ data: "id" }, { data: "email" }, { data: "password" }],
+		});
+
+		setInterval(function () {
+			miTabla.ajax.reload();
+		}, 10000);
+	});
+</script>
+{% endblock %}
+
+
