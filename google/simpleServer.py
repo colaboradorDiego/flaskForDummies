@@ -18,6 +18,11 @@ def google_pie_chart():
 def google_staticTable_chart():
     return render_template('staticTable.html')
 
+@app.route('/ajaxtable')
+def google_ajaxtable():
+    return render_template('ajaxTable.html')
+
+
 
 @app.route('/semistatictable')
 def google_semiStaticTable_chart():
@@ -54,12 +59,6 @@ def google_semiStaticTable_chart():
             "total_deaths":4634}
     }}
     return render_template('semiStaticTable.html', data=covid)
-
-
-@app.route('/dinamictable')
-def google_dinamicTable_chart():
-    data = {'Equipo': 'Puntos', 'Boca': 24, 'Platence': 20, 'Velez': 18}
-    return render_template('dinamicTable.html', data=data)
 
 
 if __name__ == "__main__":

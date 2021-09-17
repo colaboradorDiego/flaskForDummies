@@ -17,7 +17,7 @@
 		https://developers.google.com/chart/interactive/docs/datatables_dataviews#datatablesdataviews
 		
 
-	start server
+	Server
 		este es el servidor que publica las paginas que detallamos a continuacion
 		python simpleServer.py
 		
@@ -31,15 +31,17 @@
 		http://127.0.0.1:5000/pie
 			El frontend utiliza el javascript google.visualization.arrayToDataTable 
 			para mostrar los datos del servidor en un grafico de torta google.visualization.PieChart
-			
-			
-		http://127.0.0.1:5000/dinamictable
-			El frontend utiliza javascript puro para mostrar los datos del servidor en una tabla
+						
 			
 		http://127.0.0.1:5000/semistatictable
 			El frontend utiliza el javascript de google.visualization.DataTable para mostrar
 			los datos del servisor en un grafico de table google.visualization.Table
 
+	Google Chart API & Real Time Data mediante Ajax Request
+		https://developer.mozilla.org/es/docs/Web/API/Fetch_API
+		https://davidwalsh.name/fetch
+		https://www.digitalocean.com/community/tutorials/how-to-use-the-javascript-fetch-api-to-get-data-es
+		
 
 # geekLogin example
 	https://www.geeksforgeeks.org/login-and-registration-project-using-flask-and-mysql/
@@ -70,8 +72,7 @@
 		python sampleTables.py
 			Aplico lo q aprendo con:
 				JINJA
-				AJAX
-				JavaScript
+				AJAX - JavaScript
 		
 	
 		
@@ -105,6 +106,8 @@
 		https://www.mysqltutorial.org/python-mysql-query/
 		https://dev.mysql.com/doc/connector-python/en/connector-python-api-mysqlcursor-fetchall.html
 
+		http://127.0.0.1:5000/Basico
+			Ejemplo basico de como utlizar JINJA
 
 	
 # Flask & JavaScript

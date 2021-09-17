@@ -9,19 +9,19 @@
 			console.log(covid);
 		
 			function drawTable() {
-				var dataTable = new google.visualization.DataTable();
-				var table = new google.visualization.Table(document.getElementById('three'));
+				var data = new google.visualization.DataTable();
 				
-				dataTable.addColumn('string', 'Nombre Pais');
-				dataTable.addColumn('number', 'Nro de casos');
+				data.addColumn('string', 'Nombre Pais');
+				data.addColumn('number', 'Nro de casos');
 				
 				Object.entries(covid.countries).forEach(([y, v]) => {
-					dataTable.addRows([
+					data.addRows([
 						[y, v['total_cases']],
 					]);
 				});
 				
-				table.draw(dataTable, {showRowNumber: true, width: '100%', height: '100%'});
+				var table = new google.visualization.Table(document.getElementById('three'));
+				table.draw(data, {showRowNumber: true, width: '100%', height: '100%'});
 				
 			}
 			

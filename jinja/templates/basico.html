@@ -1,0 +1,21 @@
+<html>
+<head>
+	<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/gridCss.css') }}" />
+</head>
+<body>
+	<div id="wrapper" class="wrapper">
+		<table>
+			<tr>
+				<th>Equipo</th>
+				<th>Puntos</th>
+			</tr>
+			{% for v in data %}
+			<tr>
+				<td>{{ v }}</td>
+				<td>{{ data[v] }}</td>
+			</tr>
+			{% endfor %}
+		</table>
+	</div>
+</body>
+</html>
